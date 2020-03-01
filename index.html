@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item" id="iphoneMobile" >
+                  <div class="row" >
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button class="btn btn-default" id ="minusButton2"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" value="1" id = "inputValue1">
+                           <button class="btn btn-default" id ="plusButton"><i class="fas fa-plus" ></i></button>
+                        </div>
+                        <h5>$<span id ="itemTwoTotal">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item" id="removeTwo">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item" id ="caseCover">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button class="btn btn-default" id="minusButton"><i class="fas fa-minus" ></i></button>
+                           <input type="text" class="form-control text-center" value="1" id="inputValue2">
+                           <button class="btn btn-default" id ="plusButton1"><i class="fas fa-plus" ></i></button>
+
+                        </div>
+                        <h5>$<span id="itemOneTotal">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item" id="removeOne">
+                     </div>
+                  </div>
+               </div>
+               <div class="cart-item text-center" id="cartEmpty">
+                  <h5>Your Cart is Empty</h5>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                        
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$ <span id ="subTotal">1278</span> </h5>
+                        <h5><span id = "totalTax"> 00</span></h5>
+                        <h5> $<span id ="finalTotal">1278</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <p class="text-center">This Site Javascript Develop by: <a href="www.facebook.com/kazi.mamun.716">Kazi Mamun</a></p>
+   <script>
+
+      // Item two codes
+      const addItem = document.getElementById("plusButton1");
+      addItem.addEventListener("click", function(){
+         const inputValue2 = document.getElementById("inputValue2").value++;
+         const itemOneTotal = document.getElementById("itemOneTotal").innerText;
+         const itemOne = parseFloat(itemOneTotal);
+         const addItemOne = itemOne + 59;
+
+       
+         document.getElementById("itemOneTotal").innerText = addItemOne;
+
+         const subTotal = document.getElementById("subTotal").innerText;
+         const firstTotal = parseFloat(subTotal);
+         const totalValue = firstTotal +  59;
+
+         document.getElementById("subTotal").innerText = totalValue;
+         document.getElementById("finalTotal").innerText = totalValue;
+
+   })
+
+   
+   const mninusItem = document.getElementById("minusButton");
+   mninusItem.addEventListener("click", function(){
+            const inputValue2 = document.getElementById("inputValue2")
+            if(inputValue2.value <=0 && minusValue <=0 ){
+            inputValue2.value = 0;
+            minusValue = 0;
+         }
+         else{
+            inputValue2.value--;
+         };
+            const itemOneTotal = document.getElementById("itemOneTotal").innerText;
+            const itemOne =  parseFloat(itemOneTotal);
+            const minusItemOne = itemOneTotal - 59 ;
+            
+
+            document.getElementById("itemOneTotal").innerText = minusItemOne;
+
+            const subTotal = document.getElementById("subTotal").innerText;
+            const firstTotal = parseFloat(subTotal);
+            const minusValue = firstTotal - 59  ;
+
+            document.getElementById("subTotal").innerText = minusValue;
+            document.getElementById("finalTotal").innerText = minusValue;
+      
+
+         })
+         
+ 
+
+
+
+   //Item 1 Codes
+
+      const plusButton = document.getElementById("plusButton");
+      plusButton.addEventListener("click", function(){
+      const inputValue1 = document.getElementById("inputValue1").value++;
+      const itemTwoTotal = document.getElementById("itemTwoTotal").innerText;
+      const itemTwo = parseFloat(itemTwoTotal);
+      const addItemTwo = itemTwo + 1219;
+
+      document.getElementById("itemTwoTotal").innerText = addItemTwo;
+
+         const subTotal = document.getElementById("subTotal").innerText;
+         const firstTotal = parseFloat(subTotal);
+         const totalValue2 = firstTotal +  1219;
+
+         document.getElementById("subTotal").innerText = totalValue2;
+         document.getElementById("finalTotal").innerText = totalValue2;
+   })
+
+      const minusButton2 = document.getElementById("minusButton2");
+      minusButton2.addEventListener("click", function(){
+      const inputValue1 = document.getElementById("inputValue1")
+      if(inputValue1.value <=0 && minusValue2 <=0 ){
+            inputValue1.value = 0;
+            minusValue2 = 0;
+         }
+         else{
+            inputValue1.value--;
+         };
+      const itemTwoTotal = document.getElementById("itemTwoTotal").innerText;
+      const itemTwo = parseFloat(itemTwoTotal);
+      const minusItemTwo = itemTwo - 1219;
+
+      document.getElementById("itemTwoTotal").innerText = minusItemTwo;
+
+         const subTotal = document.getElementById("subTotal").innerText;
+         const firstTotal = parseFloat(subTotal);
+         const minusValue2 = firstTotal -  1219;
+
+         document.getElementById("subTotal").innerText = minusValue2;
+         document.getElementById("finalTotal").innerText = minusValue2;
+
+   })
+
+ 
+
+   //Remove
+
+   const removeOne = document.getElementById("removeOne");
+   removeOne.addEventListener("click", function(){
+
+      const pordOnePrice = document.getElementById("itemOneTotal").innerText;
+      const subTotal = document.getElementById("subTotal").innerText;
+      const firstTotal = parseFloat(subTotal);
+      const valOne =  firstTotal - pordOnePrice;
+
+      document.getElementById("subTotal").innerText = valOne;
+      document.getElementById("finalTotal").innerText = valOne;
+
+      const removeCarTwo = document.getElementById("caseCover");
+      removeCarTwo.style.display="none";
+
+      const taxString = document.getElementById("totalTax").innerText;
+      const taxNumber = parseFloat("taxString");
+      const finalalTax = finalTotal*15/100;
+      document.getElementById("totalTax").innerText = finalalTax;
+
+   })
+
+   const removeTwo= document.getElementById("removeTwo");
+   removeTwo.addEventListener("click", function(){
+
+      const pordTwoPrice = document.getElementById("itemTwoTotal").innerText;
+      const subTotal = document.getElementById("subTotal").innerText;
+      const totalTwo = parseFloat(subTotal);
+      const valTwo =  totalTwo - pordTwoPrice;
+
+      document.getElementById("subTotal").innerText = valTwo;
+      document.getElementById("finalTotal").innerText = valTwo;
+
+      const removeCarTwo = document.getElementById("iphoneMobile");
+      removeCarTwo.style.display="none"  
+   })
+
+    </script>
+
+</body>
+
+</html>
